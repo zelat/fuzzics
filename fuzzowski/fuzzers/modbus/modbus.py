@@ -17,9 +17,9 @@ class MODBUS(IFuzzer):
     source venv/bin/activate
     pip install -r requirements.txt
 
-    python -m fuzzowski 127.0.0.1 502 -p tcp -f modbus -rt 0.5 -r read_coil
-    python -m fuzzowski 127.0.0.1 502 -p tcp -f modbus 
-    python -m fuzzowski 127.0.0.1 502 -p tcp -f modbus -rt 1 -m modbusMon
+    python -m fuzzowski 10.230.114.63 7059 -p tcp -f modbus -rt 0.5 -r read_coil
+    python -m fuzzowski 10.230.114.63 7059 -p tcp -f modbus
+    python -m fuzzowski 10.230.114.63 7059 -p tcp -f modbus -rt 1 -m modbusMon
     """
 
     # --------------------------------------------------------------- #

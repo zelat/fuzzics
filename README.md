@@ -159,25 +159,3 @@ Other Options:
                         Set Document URL for print_uri
 
 ```
-
-#### Examples
-Fuzz the get_printer_attribs IPP operation with default options:
-
-```python -m fuzzowski printer1 631 -f ipp -r get_printer_attribs --restart smartplug```
-
-[![asciicast](https://asciinema.org/a/0RMDMrJWiFo4RoRwAjx61BXDY.svg)](https://asciinema.org/a/0RMDMrJWiFo4RoRwAjx61BXDY)
-
-Use the raw feature of IPP to fuzz the finger protocol:
-
-```python -m fuzzowski printer 79 -f raw -r '{{root}}\n'```
-
-[![asciicast](https://asciinema.org/a/Pch0JbkNK97dgrCUMK8iIfJv5.svg)](https://asciinema.org/a/Pch0JbkNK97dgrCUMK8iIfJv5)
-
-Use the raw feature of IPP to fuzz the finger protocol, but instead of using the predefined mutations, use a file:
-
-```python -m fuzzowski printer 79 -f raw -r '{{root}}\n' --file 'path/to/my/fuzzlist'```
-
-Stateful Fuzzer example, demonstrating the use of s_response and s_variable to obtain a token that is needed to fuzz a request. This example is based on the [mock http server test case](https://github.com/nccgroup/fuzzowski/blob/master/tests/mock_http_server/mock_http_fuzzer.py)
-
-[![asciicast](https://asciinema.org/a/290852.svg)](https://asciinema.org/a/290852)
-
