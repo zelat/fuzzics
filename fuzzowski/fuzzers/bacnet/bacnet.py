@@ -8,6 +8,8 @@ Use at your own risk, and please do not use in a production environment
 @Author: https://github.com/1modm
 
 Change your Device ID BACnet server below
+python -m fuzzowski 10.230.114.63 47808 -p udp -f bacnet
+python -m fuzzowski 10.230.114.63 47808 -p udp -f bacnet -rt 1 -m BACnetMon
 """
 
 # --------------------------------------------------------------- #
@@ -88,9 +90,9 @@ class BACnet(IFuzzer):
     source venv/bin/activate
     pip install -r requirements.txt
 
-    python -m fuzzowski 127.0.0.1 47808 -p udp -f bacnet -rt 0.5 -m BACnetMon
-    python -m fuzzowski 127.0.0.1 47808 -p udp -f bacnet -rt 0.5 -r who_is -m BACnetMon
-    python -m fuzzowski 127.0.0.1 47808 -p udp -f bacnet -rt 0.5 -r DeviceCommunicationControl -m BACnetMon
+    python -m fuzzowski 10.230.114.63 47808 -p udp -f bacnet -rt 0.5 -m BACnetMon
+    python -m fuzzowski 10.230.114.63 47808 -p udp -f bacnet -rt 0.5 -r who_is -m BACnetMon
+    python -m fuzzowski 10.230.114.63 47808 -p udp -f bacnet -rt 0.5 -r DeviceCommunicationControl -m BACnetMon
     """
 
     name = 'bacnet'

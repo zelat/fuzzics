@@ -39,7 +39,7 @@ class MODBUS(IFuzzer):
 
         s_initialize("modbus_read_coil")
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0000,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -51,7 +51,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('read_holding_registers')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -65,7 +65,7 @@ class MODBUS(IFuzzer):
         # ------------------ Read Input Status (FC=02) ------------------ #
         s_initialize('ReadDiscreteInputs')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -78,7 +78,7 @@ class MODBUS(IFuzzer):
         # ---------------- Read Holding Registers (FC=03) --------------- #
         s_initialize('ReadHoldingRegisters')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -91,7 +91,7 @@ class MODBUS(IFuzzer):
         # ---------------- Read Input Registers (FC=04) ----------------- #
         s_initialize('ReadInputRegisters')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -105,7 +105,7 @@ class MODBUS(IFuzzer):
         # ------------------ Force Single Coil (FC=05) ------------------ #
         s_initialize('WriteSingleCoil')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -119,7 +119,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('WriteSingleRegister')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -132,7 +132,7 @@ class MODBUS(IFuzzer):
         # ---------------- Force Multiple Coils (FC=15) ----------------- #
         s_initialize('WriteMultipleCoils')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -148,7 +148,7 @@ class MODBUS(IFuzzer):
         # --------------- Preset Multiple Registers (FC=16) ------------- #
         s_initialize('WriteMultipleRegisters')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -166,7 +166,7 @@ class MODBUS(IFuzzer):
         # ---------------------------- Other ---------------------------- #
         s_initialize('ReadExceptionStatus')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -175,7 +175,7 @@ class MODBUS(IFuzzer):
     
         s_initialize('ReadExceptionStatusError')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -184,7 +184,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('ReportSlaveId')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -193,7 +193,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('ReadFileSub')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -205,7 +205,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('ReadFileRecord')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -215,7 +215,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('WriteFileSub')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -232,7 +232,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('WriteFileRecord')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -242,7 +242,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('MaskWriteRegister')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)
@@ -254,7 +254,7 @@ class MODBUS(IFuzzer):
 
         s_initialize('ReadWriteMultipleRegisters')
         with s_block("modbus_head"):
-            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0001,name='transId',fuzzable=False)
             s_word(0x0002,name='protoId',fuzzable=False)
             s_word(0x06,endian='>',name='length')
             s_byte(0xff,name='unit Identifier',fuzzable=False)

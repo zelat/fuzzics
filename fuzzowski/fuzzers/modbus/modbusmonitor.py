@@ -19,7 +19,8 @@ class modbusMonitor(IMonitor):
     """
 
     # Based on https://svn.nmap.org/nmap/scripts/modbus-discover.nse
-    # Send Read Device Identification 
+    # \x01\x00\x00\x00\x00\x06\xff\x01\xfb\x7f\x00\x00
+    # Send Read Device Identification (读取设备ID)
     get_modbus_device_id_nse = (b"\x00\x00"  # Modbus TCP Transaction Identifier
                                b"\x00\x00"  # Modbus TCP Protocol Identifier
                                b"\x00\x05"  # Modbus TCP Length
@@ -42,6 +43,8 @@ class modbusMonitor(IMonitor):
                            #b"\x04", # Send read input register instead previous?
                            )
 
+    get_modbus_request = (b'\x00\x00\x00\x00\x00\x07\x01\x03\x04\x01\x00\x00\x00')
+
     @staticmethod
     def name() -> str:
         return "modbusMon"
@@ -59,7 +62,7 @@ class modbusMonitor(IMonitor):
     def _get_modbus_info(self, conn: ITargetConnection):
         try:
             conn.open()
-            conn.send(self.get_modbus_device_id_nse) # or get_modbus_slave_id
+            conn.send(self.get_modbus_request) # or get_modbus_slave_id
             data = conn.recv_all(10000)
             if len(data) == 0:
                 self.logger.log_error("MODBUS error response, getting MODBUS device information Failed!!")
