@@ -58,7 +58,7 @@ class IEC104(IFuzzer):
         with s_block("iec_apci"):
             s_byte(0x68, name="start", fuzzable=False)
             s_byte(0x04, name="apdu_length", fuzzable=True)
-            s_dword(0x07000000, name="type", fuzzable=False)
+            s_static("\x07\x00\x00\x00")
 
         s_initialize("iec104_apci_cf")
         with s_block("iec_apci"):
